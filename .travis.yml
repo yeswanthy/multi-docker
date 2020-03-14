@@ -3,20 +3,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t yeswanthy/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t yeswanthyenamula/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run yeswanthy/react-test npm run test -- --coverage
+  - docker run yeswanthyenamula/react-test npm run test -- --coverage
 
 after_sucess:
-  - docker build -t yeswanthy/multi-client ./client
-  - docker build -t yeswanthy/multi-nginx ./nginx
-  - docker build -t yeswanthy/multi-server ./server
-  - docker build -t yeswanthy/multi-worker ./worker
+  - docker build -t yeswanthyenamula/multi-client ./client
+  - docker build -t yeswanthyenamula/multi-nginx ./nginx
+  - docker build -t yeswanthyenamula/multi-server ./server
+  - docker build -t yeswanthyenamula/multi-worker ./worker
   # Log into the docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
   # take those images and push them to docker hub
-  - docker push yeswanthy/multi-client
-  - docker push yeswanthy/multi-nginx
-  - docker push yeswanthy/multi-server
-  - docker push yeswanthy/multi-worker
+  - docker push yeswanthyenamula/multi-client
+  - docker push yeswanthyenamula/multi-nginx
+  - docker push yeswanthyenamula/multi-server
+  - docker push yeswanthyenamula/multi-worker
