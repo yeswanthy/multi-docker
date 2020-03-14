@@ -56,5 +56,5 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./nginx
-    ports:
+    ports:    # expose ports
       - '3000:80'
