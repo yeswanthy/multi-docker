@@ -20,3 +20,17 @@ after_sucess:
   - docker push yeswanthyenamula/multi-nginx
   - docker push yeswanthyenamula/multi-server
   - docker push yeswanthyenamula/multi-worker
+
+deploy:
+  cleanup : true
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-container-docker"
+  env: "MultiContainerDocker-env"
+  bucket: "elasticbeanstalk-us-east-2-576223396972"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
