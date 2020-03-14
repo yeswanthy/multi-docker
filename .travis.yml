@@ -14,7 +14,7 @@ after_sucess:
   - docker build -t yeswanthy/multi-server ./server
   - docker build -t yeswanthy/multi-worker ./worker
   # Log into the docker hub
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
   # take those images and push them to docker hub
   - docker push yeswanthy/multi-client
   - docker push yeswanthy/multi-nginx
